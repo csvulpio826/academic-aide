@@ -6,9 +6,9 @@ export const Colors = {
   surfaceDark: '#E8EAED',
 
   // Primary accent (Instagram-style blue)
-  primary: '#0095F6',
-  primaryLight: '#E8F4FD',
-  primaryDark: '#0074CC',
+  primary: '#007AFF',
+  primaryLight: '#E5F1FF',
+  primaryDark: '#005BB5',
 
   // Text
   textPrimary: '#0A0A0A',

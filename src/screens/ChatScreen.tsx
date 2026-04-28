@@ -510,14 +510,8 @@ export default function ChatScreen() {
         {/* AI Provider Toggle */}
         <TouchableOpacity
           style={styles.providerToggle}
-          onPress={() => {
-            const next = aiProvider === 'claude' ? undefined : 'claude';
-            setAiProvider(next);
-          }}
         >
-          <Text style={styles.providerToggleText}>
-            {aiProvider === 'claude' ? 'Claude' : 'GLM'}
-          </Text>
+          <Text style={styles.providerToggleText}>Gemini</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.headerAction}>
           <Ionicons

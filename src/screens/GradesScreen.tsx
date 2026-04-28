@@ -363,7 +363,7 @@ const styles = StyleSheet.create({
   gpaCard: {
     marginHorizontal: 16,
     marginBottom: 16,
-    backgroundColor: Colors.textPrimary,
+    backgroundColor: Colors.primary,
     borderRadius: BorderRadius.xl,
     padding: 20,
     flexDirection: 'row',

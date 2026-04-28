@@ -778,7 +778,7 @@ const styles = StyleSheet.create({
     color: Colors.textOnPrimary,
   },
   scoreCard: {
-    backgroundColor: Colors.textPrimary,
+    backgroundColor: Colors.primary,
     borderRadius: BorderRadius.xl,
     marginHorizontal: Spacing.lg,
     marginTop: Spacing.md,
