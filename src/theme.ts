@@ -31,7 +31,7 @@ export const Colors = {
   borderLight: '#F3F4F6',
 
   // Tab bar
-  tabActive: '#0095F6',
+  tabActive: '#007AFF',
   tabInactive: '#9CA3AF',
   tabBackground: '#FFFFFF',
 
@@ -40,13 +40,13 @@ export const Colors = {
   cardShadow: '#000000',
 
   // Chat
-  bubbleOutgoing: '#0095F6',
+  bubbleOutgoing: '#007AFF',
   bubbleIncoming: '#F0F2F5',
   bubbleTextOutgoing: '#FFFFFF',
   bubbleTextIncoming: '#0A0A0A',
 
   // Gradient stops
-  gradientStart: '#0095F6',
+  gradientStart: '#007AFF',
   gradientEnd: '#00C6FF',
 };
 
