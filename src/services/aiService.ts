@@ -6,7 +6,7 @@ import Constants from 'expo-constants';
 
 const GEMINI_MODEL = 'gemini-2.5-flash';
 const MAX_TOKENS = 1024;
-const DAILY_TOKEN_CAP = 125_000;
+const DAILY_USER_TOKEN_CAP = 2_000_000; // ~ 2 million tokens per user per day (approx $0.30/day)
 
 export type AIProvider = 'gemini';
 
@@ -32,14 +32,15 @@ export interface AIResponse {
 
 async function trackTokenUsage(userId: string, totalTokens: number): Promise<void> {
   const today = new Date().toISOString().split('T')[0];
-  const docRef = doc(db, 'token_usage', today);
+  const docRef = doc(db, 'token_usage', `${userId}_${today}`);
   try {
     await setDoc(
       docRef,
       {
         total: increment(totalTokens),
-        user_count: increment(1),
         updated_at: new Date(),
+        userId: userId,
+        date: today
       },
       { merge: true }
     );
@@ -48,13 +49,13 @@ async function trackTokenUsage(userId: string, totalTokens: number): Promise<voi
   }
 }
 
-async function checkTokenCap(): Promise<boolean> {
+async function checkTokenCap(userId: string): Promise<boolean> {
   const today = new Date().toISOString().split('T')[0];
-  const docRef = doc(db, 'token_usage', today);
+  const docRef = doc(db, 'token_usage', `${userId}_${today}`);
   try {
     const snap = await getDoc(docRef);
     if (!snap.exists()) return false;
-    return (snap.data()?.total || 0) >= DAILY_TOKEN_CAP;
+    return (snap.data()?.total || 0) >= DAILY_USER_TOKEN_CAP;
   } catch {
     return false;
   }
@@ -149,9 +150,9 @@ export async function sendChatMessage(
     finalUserMessage = `${contextParts.join('\n\n')}\n\nStudent question: ${userMessage}`;
   }
 
-  const capReached = await checkTokenCap();
+  const capReached = await checkTokenCap(userId);
   if (capReached) {
-    throw new Error('Daily AI usage limit reached. Please try again tomorrow.');
+    throw new Error('You have reached your daily AI usage limit. Please try again tomorrow.');
   }
 
   const text = await callGemini(userId, history, finalUserMessage);
