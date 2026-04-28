@@ -131,12 +131,22 @@ export async function sendChatMessage(
   history: ChatMessage[],
   userMessage: string,
   textbookContext: string[] = [],
+  scheduleContext: string = '',
   providerOverride?: AIProvider
 ): Promise<AIResponse> {
   // Inject context if any
   let finalUserMessage = userMessage;
+  
+  const contextParts = [];
   if (textbookContext.length > 0) {
-    finalUserMessage = `Relevant textbook content:\n${textbookContext.join('\n\n')}\n\nStudent question: ${userMessage}`;
+    contextParts.push(`Relevant textbook content:\n${textbookContext.join('\n\n')}`);
+  }
+  if (scheduleContext) {
+    contextParts.push(`Student's schedule:\n${scheduleContext}`);
+  }
+
+  if (contextParts.length > 0) {
+    finalUserMessage = `${contextParts.join('\n\n')}\n\nStudent question: ${userMessage}`;
   }
 
   const capReached = await checkTokenCap();

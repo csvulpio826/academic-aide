@@ -34,6 +34,7 @@ import AttachmentMenu from '../components/AttachmentMenu';
 import AddTextbookModal from '../components/AddTextbookModal';
 import type { TextbookInfo } from '../components/AddTextbookModal';
 import { useTextbooks } from '../hooks/useTextbooks';
+import { useSchedule } from '../hooks/useSchedule';
 import type { Message } from '../types';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -110,6 +111,7 @@ export default function ChatScreen() {
   const [uploadModalVisible, setUploadModalVisible] = useState(false);
   const [aiProvider, setAiProvider] = useState<AIProvider | undefined>(undefined); // undefined = auto
   const { textbooks } = useTextbooks();
+  const { events: scheduleEvents } = useSchedule();
   const listRef = useRef<FlatList>(null);
 
   const now = () =>
@@ -320,12 +322,18 @@ export default function ChatScreen() {
         throw new Error('User not authenticated');
       }
 
+      // Format the user's schedule as text
+      const scheduleContext = scheduleEvents.map(
+        (ev) => `- ${ev.title} (${ev.type}): ${ev.startTime || ev.time} to ${ev.endTime || '?'} at ${ev.location || 'Unknown'}`
+      ).join('\n');
+
       // Call AI — Claude by default, GLM if overridden or auto-fallback
       const aiResponse = await sendChatMessage(
         user.uid,
         chatHistory,
         text.trim(),
         textbookContext,
+        scheduleContext,
         aiProvider
       );
 
