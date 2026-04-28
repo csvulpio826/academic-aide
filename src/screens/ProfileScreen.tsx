@@ -90,7 +90,7 @@ export const ProfileScreen: React.FC = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" backgroundColor={colors.white} />
+      <StatusBar barStyle="dark-content" backgroundColor={colors.background} />
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         {/* Profile Header */}
         <View style={[styles.profileCard, shadows.md]}>
@@ -128,7 +128,7 @@ export const ProfileScreen: React.FC = () => {
             <MaterialCommunityIcons
               name="pencil"
               size={16}
-              color={colors.white}
+              color={colors.background}
             />
             <Text style={styles.editButtonText}>Edit Profile</Text>
           </TouchableOpacity>
@@ -191,7 +191,7 @@ export const ProfileScreen: React.FC = () => {
                         false: colors.border,
                         true: colors.primaryLight,
                       }}
-                      thumbColor={notificationsEnabled || darkMode ? colors.primary : colors.text.tertiary}
+                      thumbColor={notificationsEnabled || darkMode ? colors.primary : colors.textMuted}
                     />
                   ) : (
                     <View style={styles.settingRight}>
@@ -199,7 +199,7 @@ export const ProfileScreen: React.FC = () => {
                       <MaterialCommunityIcons
                         name="chevron-right"
                         size={20}
-                        color={colors.text.tertiary}
+                        color={colors.textMuted}
                       />
                     </View>
                   )}
@@ -249,7 +249,7 @@ export const ProfileScreen: React.FC = () => {
               <MaterialCommunityIcons
                 name="logout"
                 size={20}
-                color={colors.error}
+                color={colors.danger}
               />
               <Text style={styles.dangerButtonText}>Logout</Text>
             </TouchableOpacity>
@@ -260,7 +260,7 @@ export const ProfileScreen: React.FC = () => {
               <MaterialCommunityIcons
                 name="delete"
                 size={20}
-                color={colors.error}
+                color={colors.danger}
               />
               <Text style={styles.dangerButtonText}>Delete Account</Text>
             </TouchableOpacity>
@@ -288,10 +288,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.lg,
   },
   profileCard: {
-    backgroundColor: colors.card,
+    backgroundColor: colors.cardBackground,
     borderRadius: borderRadius.lg,
     borderWidth: 1,
-    borderColor: colors.cardBorder,
+    borderColor: colors.border,
     padding: spacing.xl,
     marginTop: spacing.lg,
     marginBottom: spacing.xl,
@@ -319,19 +319,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   profileName: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
+    fontSize: typography.fontSizeLG,
+    fontWeight: typography.fontWeightBold,
+    color: colors.textPrimary,
     marginBottom: spacing.xs,
   },
   profileMajor: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
+    fontSize: typography.fontSizeSM,
+    color: colors.textSecondary,
     marginBottom: spacing.xs,
   },
   profileEmail: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.tertiary,
+    fontSize: typography.fontSizeSM,
+    color: colors.textMuted,
   },
   statsRow: {
     flexDirection: 'row',
@@ -347,14 +347,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   statLabel: {
-    fontSize: typography.fontSize.xs,
-    color: colors.text.secondary,
+    fontSize: typography.fontSizeXS,
+    color: colors.textSecondary,
     marginBottom: spacing.xs,
   },
   statValue: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text.primary,
+    fontSize: typography.fontSizeLG,
+    fontWeight: typography.fontWeightBold,
+    color: colors.textPrimary,
   },
   divider: {
     width: 1,
@@ -371,17 +371,17 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius.md,
   },
   editButtonText: {
-    color: colors.white,
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.semibold,
+    color: colors.background,
+    fontSize: typography.fontSizeMD,
+    fontWeight: typography.fontWeightSemiBold,
   },
   section: {
     marginBottom: spacing.xl,
   },
   sectionTitle: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
+    fontSize: typography.fontSizeLG,
+    fontWeight: typography.fontWeightSemiBold,
+    color: colors.textPrimary,
     marginBottom: spacing.lg,
   },
   achievementsGrid: {
@@ -398,14 +398,14 @@ const styles = StyleSheet.create({
     marginBottom: spacing.md,
   },
   achievementTitle: {
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text.primary,
+    fontSize: typography.fontSizeMD,
+    fontWeight: typography.fontWeightSemiBold,
+    color: colors.textPrimary,
     marginBottom: spacing.xs,
   },
   achievementDesc: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
+    fontSize: typography.fontSizeSM,
+    color: colors.textSecondary,
     textAlign: 'center',
   },
   settingCard: {
@@ -431,9 +431,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   settingLabel: {
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.medium,
-    color: colors.text.primary,
+    fontSize: typography.fontSizeMD,
+    fontWeight: typography.fontWeightMedium,
+    color: colors.textPrimary,
   },
   settingRight: {
     flexDirection: 'row',
@@ -441,8 +441,8 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   settingValue: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
+    fontSize: typography.fontSizeSM,
+    color: colors.textSecondary,
   },
   contactCard: {
     marginBottom: spacing.md,
@@ -456,19 +456,19 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contactLabel: {
-    fontSize: typography.fontSize.xs,
-    color: colors.text.secondary,
+    fontSize: typography.fontSizeXS,
+    color: colors.textSecondary,
     marginBottom: spacing.xs,
   },
   contactValue: {
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.medium,
-    color: colors.text.primary,
+    fontSize: typography.fontSizeMD,
+    fontWeight: typography.fontWeightMedium,
+    color: colors.textPrimary,
   },
   dangerCard: {
     marginBottom: spacing.md,
-    backgroundColor: `${colors.error}10`,
-    borderColor: `${colors.error}30`,
+    backgroundColor: `${colors.danger}10`,
+    borderColor: `${colors.danger}30`,
   },
   dangerButton: {
     flexDirection: 'row',
@@ -476,9 +476,9 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   dangerButtonText: {
-    fontSize: typography.fontSize.base,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.error,
+    fontSize: typography.fontSizeMD,
+    fontWeight: typography.fontWeightSemiBold,
+    color: colors.danger,
   },
   footer: {
     alignItems: 'center',
@@ -486,12 +486,12 @@ const styles = StyleSheet.create({
     marginBottom: spacing.lg,
   },
   footerText: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
+    fontSize: typography.fontSizeSM,
+    color: colors.textSecondary,
   },
   footerSubtext: {
-    fontSize: typography.fontSize.xs,
-    color: colors.text.tertiary,
+    fontSize: typography.fontSizeXS,
+    color: colors.textMuted,
     marginTop: spacing.xs,
   },
 });
