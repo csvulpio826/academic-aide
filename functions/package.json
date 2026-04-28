@@ -1,0 +1,26 @@
+{
+  "name": "academic-aide-functions",
+  "description": "Cloud Functions for Academic Aide PDF processing and search",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@google-cloud/storage": "^7.19.0",
+    "@google/genai": "^0.2.0",
+    "firebase-admin": "^13.8.0",
+    "firebase-functions": "^5.0.0",
+    "pdfjs-dist": "^4.0.0"
+  },
+  "devDependencies": {
+    "firebase-tools": "^13.0.0"
+  },
+  "private": true
+}

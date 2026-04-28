@@ -1,0 +1,111 @@
+⚠  emulators: You are not currently authenticated so some features may not work correctly. Please run firebase login to authenticate the CLI.
+i  emulators: Starting emulators: functions, firestore, storage
+i  emulators: Detected demo project ID "demo-no-project", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail.
+i  firestore: Firestore Emulator logging to firestore-debug.log
+✔  firestore: Firestore Emulator was started in standard edition.
+✔  firestore: Firestore Emulator UI websocket is running on 9150.
+⚠  Rules content empty. Compilation aborted in /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/storage.rules:0
+i  functions: Watching "/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions" for Cloud Functions...
+⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory.
+⚠  functions: Please note that there will be breaking changes when you upgrade.
+⚠  functions: Your requested "node" version "20" doesn't match your global version "22". Using node@22 from host.
+i  functions: Loaded environment variables from .env.
+Serving at port 8277
+
+Warning: Please use the `legacy` build in Node.js environments.
+
+(node:86141) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+✔  functions: Loaded functions definitions from source: processPdfUpload, searchTextbookChunks.
+✔  functions[us-central1-processPdfUpload]: storage function initialized.
+✔  functions[us-central1-searchTextbookChunks]: http function initialized (http://127.0.0.1:5001/demo-no-project/us-central1/searchTextbookChunks).
+
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Firestore │ 127.0.0.1:8080 │ http://127.0.0.1:4000/firestore │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Storage   │ 127.0.0.1:9199 │ http://127.0.0.1:4000/storage   │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub host: 127.0.0.1 port: 4400
+  Other reserved ports: 4500, 9150
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+i  functions: Loaded environment variables from .env.
+>  Warning: Please use the `legacy` build in Node.js environments.
+i  functions: Beginning execution of "us-central1-processPdfUpload"
+>  Processing PDF: userId=users, bookId=history_book
+>  ❌ PDF processing error for history_book: Error: Setting up fake worker failed: "File URL host must be "localhost" or empty on linux".
+>      at file:///data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/pdfjs-dist/build/pdf.mjs:12387:36
+>      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+>  Failed to update book status: Error: 5 NOT_FOUND: no entity to update: app: "dev~demo-no-project"
+>  path <
+>    Element {
+>      type: "textbooks"
+>      name: "history_book"
+>    }
+>  >
+>  
+>      at callErrorFromStatus (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@grpc/grpc-js/build/src/call.js:32:19)
+>      at Object.onReceiveStatus (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@grpc/grpc-js/build/src/client.js:193:76)
+>      at Object.onReceiveStatus (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:367:141)
+>      at Object.onReceiveStatus (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:327:181)
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@grpc/grpc-js/build/src/resolving-call.js:135:78
+>      at process.processTicksAndRejections (node:internal/process/task_queues:84:11)
+>  for call at
+>      at ServiceClientImpl.makeUnaryRequest (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@grpc/grpc-js/build/src/client.js:161:32)
+>      at ServiceClientImpl.<anonymous> (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:242:33
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+>      at repeat (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/google-gax/build/src/normalCalls/retries.js:82:25)
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/google-gax/build/src/normalCalls/retries.js:125:13
+>      at OngoingCallPromise.call (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/google-gax/build/src/call.js:67:27)
+>      at NormalApiCaller.call (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/google-gax/build/src/normalCalls/normalApiCaller.js:34:19)
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/google-gax/build/src/createApiCall.js:112:30
+>      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+>  Caused by: Error
+>      at _firestore._traceUtil.startActiveSpan (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@google-cloud/firestore/build/src/write-batch.js:438:27)
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30
+>      at NoopContextManager.with (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js:14:19)
+>      at ContextAPI.with (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@opentelemetry/api/build/src/api/context.js:51:46)
+>      at NoopTracer.startActiveSpan (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js:54:31)
+>      at ProxyTracer.startActiveSpan (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js:27:24)
+>      at EnabledTraceUtil.startActiveSpan (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:102:28)
+>      at WriteBatch.commit (/data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@google-cloud/firestore/build/src/write-batch.js:436:43)
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@google-cloud/firestore/build/src/reference/document-reference.js:392:18
+>      at /data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/@google-cloud/firestore/build/src/telemetry/enabled-trace-util.js:110:30 {
+>    code: 5,
+>    details: 'no entity to update: app: "dev~demo-no-project"\n' +
+>      'path <\n' +
+>      '  Element {\n' +
+>      '    type: "textbooks"\n' +
+>      '    name: "history_book"\n' +
+>      '  }\n' +
+>      '>\n',
+>    metadata: Metadata {
+>      internalRepr: Map(1) { 'content-type' => [Array] },
+>      opaqueData: Map(0) {},
+>      options: {}
+>    },
+>    note: 'Exception occurred in retry method that was not classified as transient'
+>  }
+⚠  functions: Error: Setting up fake worker failed: "File URL host must be "localhost" or empty on linux".
+    at file:///data/.openclaw/workspace/projects/Academic_Aide/academic-aide/functions/node_modules/pdfjs-dist/build/pdf.mjs:12387:36
+    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+⚠  Your function was killed because it raised an unhandled error.
+i  functions: Finished "us-central1-processPdfUpload" in 804.886279ms
+i  functions: Loaded environment variables from .env.
+>  Warning: Please use the `legacy` build in Node.js environments.
+i  functions: Beginning execution of "us-central1-searchTextbookChunks"
+>  {"verifications":{"app":"MISSING","auth":"VALID"},"logging.googleapis.com/labels":{"firebase-log-type":"callable-request-verification"},"severity":"DEBUG","message":"Callable request verification passed"}
+>  Found 0 matching chunks for query: "What were the economic causes?"
+i  functions: Finished "us-central1-searchTextbookChunks" in 524.005588ms

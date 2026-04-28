@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "861423624712",
+    "project_id": "academic-aide",
+    "storage_bucket": "academic-aide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861423624712:android:3b9c133e29ee95dee3e7bd",
+        "android_client_info": {
+          "package_name": "com.academicaide.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861423624712-o1bcusebj2dj5t2qcku0tbjimoj38c7l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1n3D7OduhzA-EAHg9xrICay1k7DTCVwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "861423624712-o1bcusebj2dj5t2qcku0tbjimoj38c7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

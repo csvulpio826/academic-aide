@@ -1,0 +1,31 @@
+⚠  emulators: You are not currently authenticated so some features may not work correctly. Please run firebase login to authenticate the CLI.
+i  emulators: Starting emulators: functions, firestore, storage
+i  emulators: Detected demo project ID "demo-no-project", emulated services will use a demo configuration and attempts to access non-emulated services for this project will fail.
+⚠  firestore: Port 8080 is not open on localhost (127.0.0.1), could not start Firestore Emulator.
+⚠  firestore: To select a different host/port, specify that host/port in a firebase.json config file:
+      {
+        // ...
+        "emulators": {
+          "firestore": {
+            "host": "HOST",
+            "port": "PORT"
+          }
+        }
+      }
+⚠  storage: Port 9199 is not open on localhost (127.0.0.1), could not start Storage Emulator.
+⚠  storage: To select a different host/port, specify that host/port in a firebase.json config file:
+      {
+        // ...
+        "emulators": {
+          "storage": {
+            "host": "HOST",
+            "port": "PORT"
+          }
+        }
+      }
+⚠  hub: emulator hub unable to start on port 4400, starting on 4401 instead.
+⚠  ui: Emulator UI unable to start on port 4000, starting on 4001 instead.
+⚠  logging: Logging Emulator unable to start on port 4500, starting on 4501 instead.
+i  emulators: Shutting down emulators.
+
+Error: Could not start Firestore Emulator, port taken.

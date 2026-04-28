@@ -1,0 +1,13 @@
+1. Connecting to emulators and initializing Storage...
+2. Uploading mock PDF (text file) to Storage...
+Upload successful.
+3. Waiting 10 seconds for processPdfUpload function to trigger and process...
+4. Calling searchTextbookChunks...
+Searching with query: "What were the economic causes?" to http://127.0.0.1:5001/demo-no-project/us-central1/searchTextbookChunks
+5. Search Results:
+{
+  "error": {
+    "message": "Cannot read properties of undefined (reading 'vector')",
+    "status": "INTERNAL"
+  }
+}
